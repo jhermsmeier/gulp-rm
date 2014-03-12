@@ -1,0 +1,27 @@
+{
+  "name": "gulp-rm",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "gulpplugin",
+    "rm", "rmdir",
+    "clean", "remove",
+    "delete"
+  ],
+  "author": {
+    "name": "Jonas Hermsmeier",
+    "email": "jhermsmeier@gmail.com",
+    "url": "https://github.com/jhermsmeier"
+  },
+  "dependencies": {
+    "gulp-util": "^2.2.14",
+    "derive": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jhermsmeier/gulp-rm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jhermsmeier/gulp-rm/issues"
+  }
+}
