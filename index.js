@@ -19,6 +19,8 @@ function DeleteStream( options ) {
   this.options.objectMode = true
   this.directories = []
 
+  this._async = this.options.async !== false
+
   Stream.Transform.call( this, this.options )
 
 }
@@ -33,6 +35,20 @@ DeleteStream.create = function( options ) {
 }
 
 /**
+ * Walk an array of directories and
+ * delete one after another
+ * @param  {Array}    ls
+ * @param  {Function} done
+ */
+function rmdirWalk( ls, done ) {
+  if( ls.length === 0 ) return done()
+  fs.rmdir( ls.shift().path, function( error ) {
+    if( error ) Gulp.log( error.message )
+    rmdirWalk( ls, done )
+  })
+}
+
+/**
  * DeleteStream prototype
  * @type {Object}
  */
@@ -42,23 +58,32 @@ DeleteStream.prototype = {
 
   _transform: function( file, encoding, next ) {
 
-    var relative = path.relative( file.cwd, file.path )
-    if( relative === '' ) {
+    if( path.relative( file.cwd, file.path ) === '' ) {
       Gulp.log( 'Cannot delete current working directory' )
     }
 
+    // Defer removal of directories until
+    // all files are deleted to ensure they're empty
     if( file.stat.isDirectory() ) {
       this.directories.unshift( file )
       next()
-    } else {
+    } else if( !this._async ) {
       try { fs.unlinkSync( file.path ) }
       catch( error ) { Gulp.log( error.message ) }
       finally { next() }
+    } else {
+      fs.unlink( file.path, function( error ) {
+        if( error ) Gulp.log( error.message )
+        next()
+      })
     }
 
   },
 
   _flush: function( done ) {
+
+    // Sort by depth in the directory tree,
+    // so that the deepest are the first
     this.directories
       .sort( function( a, b ) {
         var x = a.path.replace( /^\/|\/$/, '' ).split( '/' ).length
@@ -67,11 +92,18 @@ DeleteStream.prototype = {
         if( x < y ) return +1
         return 0
       })
-      .forEach( function( dir ) {
+
+    if( !this._async ) {
+      var dir = null
+      while( dir = this.directories.shift() ) {
         try { fs.rmdirSync( dir.path ) }
         catch( error ) { Gulp.log( error.message ) }
-      })
-    done()
+        if( !this.directories.length ) done()
+      }
+    } else {
+      rmdirWalk( this.directories, done )
+    }
+
   }
 
 }
