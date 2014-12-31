@@ -1,21 +1,19 @@
 {
   "name": "gulp-rm",
-  "version": "0.2.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Gulp Plugin: Removes files and directories",
   "keywords": [
     "gulpplugin",
-    "rm", "rmdir",
-    "clean", "remove",
+    "rm",
+    "rmdir",
+    "clean",
+    "remove",
     "delete"
   ],
-  "author": {
-    "name": "Jonas Hermsmeier",
-    "email": "jhermsmeier@gmail.com",
-    "url": "https://github.com/jhermsmeier"
-  },
+  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://github.com/jhermsmeier)",
   "dependencies": {
-    "gulp-util": "^2.2.14",
-    "derive": "^2.3.0"
+    "bloodline": "^1.0.0",
+    "gulp-util": "^3.0.1"
   },
   "repository": {
     "type": "git",
@@ -23,5 +21,11 @@
   },
   "bugs": {
     "url": "https://github.com/jhermsmeier/gulp-rm/issues"
-  }
+  },
+  "homepage": "https://github.com/jhermsmeier/gulp-rm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
 }
