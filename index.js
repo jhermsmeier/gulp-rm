@@ -1,8 +1,8 @@
-var fs     = require( 'fs' )
-var path   = require( 'path' )
-var derive = require( 'derive' )
-var Gulp   = require( 'gulp-util' )
-var Stream = require( 'stream' )
+var fs      = require( 'fs' )
+var path    = require( 'path' )
+var inherit = require( 'bloodline' )
+var Gulp    = require( 'gulp-util' )
+var Stream  = require( 'stream' )
 
 var PluginError = Gulp.PluginError
 
@@ -109,10 +109,7 @@ DeleteStream.prototype = {
 }
 
 // Inherit from transform stream
-derive.inherit(
-  DeleteStream,
-  Stream.Transform
-)
+inherit( DeleteStream, Stream.Transform )
 
 // Exports
 module.exports = DeleteStream.create
