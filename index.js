@@ -4,8 +4,6 @@ var inherit = require( 'bloodline' )
 var Gulp    = require( 'gulp-util' )
 var Stream  = require( 'stream' )
 
-var PluginError = Gulp.PluginError
-
 /**
  * DeleteStream constructor
  * @param {Object} options
