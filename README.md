@@ -2,7 +2,7 @@
 [![npm](http://img.shields.io/npm/v/gulp-rm.svg?style=flat-square)](https://npmjs.com/gulp-rm)
 [![npm](http://img.shields.io/npm/l/gulp-rm.svg?style=flat-square)](https://npmjs.com/gulp-rm)
 [![npm downloads](http://img.shields.io/npm/dm/gulp-rm.svg?style=flat-square)](https://npmjs.com/gulp-rm)
-[![build status](http://img.shields.io/travis//gulp-rm.svg?style=flat-square)](https://travis-ci.org//gulp-rm)
+[![build status](http://img.shields.io/travis/jhermsmeier/gulp-rm.svg?style=flat-square)](https://travis-ci.org/jhermsmeier/gulp-rm)
 
 ## Install with [npm](https://npmjs.org)
 ```sh
