@@ -14,8 +14,7 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "bloodline": "~1.0.0",
-    "gulp-util": "~3.0.7"
+    "bloodline": "~1.0.0"
   },
   "repository": {
     "type": "git",

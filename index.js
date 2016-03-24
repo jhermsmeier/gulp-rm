@@ -1,8 +1,8 @@
-var fs      = require( 'fs' )
-var path    = require( 'path' )
+var fs = require( 'fs' )
+var path = require( 'path' )
 var inherit = require( 'bloodline' )
-var Gulp    = require( 'gulp-util' )
-var Stream  = require( 'stream' )
+var Stream = require( 'stream' )
+var log = console.log.bind( console, '[gulp-rm]' )
 
 /**
  * DeleteStream constructor
@@ -41,7 +41,7 @@ DeleteStream.create = function( options ) {
 function rmdirWalk( ls, done ) {
   if( ls.length === 0 ) return done()
   fs.rmdir( ls.shift().path, function( error ) {
-    if( error ) Gulp.log( error.message )
+    if( error ) log( error.message )
     rmdirWalk( ls, done )
   })
 }
@@ -57,7 +57,7 @@ DeleteStream.prototype = {
   _transform: function( file, encoding, next ) {
 
     if( path.relative( file.cwd, file.path ) === '' ) {
-      Gulp.log( 'Cannot delete current working directory' )
+      log( 'Cannot delete current working directory' )
     }
 
     // Defer removal of directories until
@@ -67,11 +67,11 @@ DeleteStream.prototype = {
       next()
     } else if( !this._async ) {
       try { fs.unlinkSync( file.path ) }
-      catch( error ) { Gulp.log( error.message ) }
+      catch( error ) { log( error.message ) }
       finally { next() }
     } else {
       fs.unlink( file.path, function( error ) {
-        if( error ) Gulp.log( error.message )
+        if( error ) log( error.message )
         next()
       })
     }
@@ -95,7 +95,7 @@ DeleteStream.prototype = {
       var dir = null
       while( dir = this.directories.shift() ) {
         try { fs.rmdirSync( dir.path ) }
-        catch( error ) { Gulp.log( error.message ) }
+        catch( error ) { log( error.message ) }
         if( !this.directories.length ) done()
       }
     } else {
