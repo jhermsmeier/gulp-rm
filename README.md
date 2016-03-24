@@ -13,6 +13,10 @@ $ npm install --save-dev gulp-rm
 Passing `{ read: false }` to `gulp.src()` prevents gulp from
 reading in the contents of files and thus speeds up the whole process.
 
+**NOTE:** Deleting directories with dotfiles (i.e. `.DS_Store`) in them will fail, unless
+a glob pattern matching them (i.e. `app/tmp/**/.*`) is also supplied to `gulp.src()`,
+as they're considered hidden files and ignored by default by `gulp.src()`.
+
 ```javascript
 var gulp = require( 'gulp' )
 var rm = require( 'gulp-rm' )
