@@ -60,6 +60,14 @@ DeleteStream.prototype = {
       log( 'Cannot delete current working directory' )
     }
 
+    if( file.stat == null ) {
+      try { file.stat = fs.statSync( file.path ) }
+      catch( error ) {
+        log( error.message )
+        return next()
+      }
+    }
+
     // Defer removal of directories until
     // all files are deleted to ensure they're empty
     if( file.stat.isDirectory() ) {
