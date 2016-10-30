@@ -28,8 +28,8 @@
     "test": "mocha --ui tdd"
   },
   "devDependencies": {
-    "glob-stream": "~5.3.2",
+    "glob-stream": "~5.3.5",
     "mkdirp": "~0.5.1",
-    "mocha": "~2.4.5"
+    "mocha": "~3.1.2"
   }
 }
