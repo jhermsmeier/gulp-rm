@@ -90,14 +90,13 @@ DeleteStream.prototype = {
 
     // Sort by depth in the directory tree,
     // so that the deepest are the first
-    this.directories
-      .sort( function( a, b ) {
-        var x = a.path.replace( /^\/|\/$/, '' ).split( '/' ).length
-        var y = b.path.replace( /^\/|\/$/, '' ).split( '/' ).length
-        if( x > y ) return -1
-        if( x < y ) return +1
-        return 0
-      })
+    this.directories.sort( function( a, b ) {
+      var x = a.path.replace( /^\/|\/$/, '' ).split( '/' ).length
+      var y = b.path.replace( /^\/|\/$/, '' ).split( '/' ).length
+      if( x > y ) return -1
+      if( x < y ) return +1
+      return 0
+    })
 
     if( !this._async ) {
       var dir = null
