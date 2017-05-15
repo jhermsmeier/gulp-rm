@@ -14,7 +14,7 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "bloodline": "~1.0.0"
+    "bloodline": "~1.0.1"
   },
   "repository": {
     "type": "git",
@@ -28,8 +28,8 @@
     "test": "mocha --ui tdd"
   },
   "devDependencies": {
-    "glob-stream": "~5.3.5",
+    "glob-stream": "~6.1.0",
     "mkdirp": "~0.5.1",
-    "mocha": "~3.1.2"
+    "mocha": "~3.4.1"
   }
 }

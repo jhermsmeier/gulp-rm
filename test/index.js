@@ -13,7 +13,7 @@ suite( 'DeleteStream', function() {
 
       if( error ) return done( error )
 
-      var gs = GlobStream.create( __dirname + '/tree/.*' )
+      var gs = GlobStream( __dirname + '/tree/.*' )
       var ds = new DeleteStream()
 
       ds.on( 'error', done )
