@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "license": "MIT",
   "description": "Gulp Plugin: Removes files and directories",
-  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://github.com/jhermsmeier)",
+  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
   "keywords": [
     "gulpplugin",
     "rm",
@@ -14,7 +14,12 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "bloodline": "~1.0.1"
+    "bloodline": "^1.0.1"
+  },
+  "devDependencies": {
+    "glob-stream": "^6.1.0",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.4.2"
   },
   "repository": {
     "type": "git",
@@ -26,10 +31,5 @@
   "homepage": "https://github.com/jhermsmeier/gulp-rm",
   "scripts": {
     "test": "mocha --ui tdd"
-  },
-  "devDependencies": {
-    "glob-stream": "~6.1.0",
-    "mkdirp": "~0.5.1",
-    "mocha": "~3.4.1"
   }
 }
