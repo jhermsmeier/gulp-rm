@@ -13,9 +13,7 @@
     "delete"
   ],
   "main": "index.js",
-  "dependencies": {
-    "bloodline": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "glob-stream": "^6.1.0",
     "mkdirp": "^0.5.1",
