@@ -1,6 +1,6 @@
 {
   "name": "gulp-rm",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "license": "MIT",
   "description": "Gulp Plugin: Removes files and directories",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
